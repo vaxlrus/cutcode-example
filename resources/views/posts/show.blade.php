@@ -1,9 +1,13 @@
+{{-- Наследование от стандартного layout --}}
 @extends('layout.app')
 
+{{-- Наименование страницы --}}
 @section('title', $post->title)
 
+{{-- Отображение контента --}}
 @section('content')
 
+    {{-- Подключение шапки --}}
     @include('partials.header')
 
     <div>
