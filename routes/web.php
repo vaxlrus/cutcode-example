@@ -34,4 +34,7 @@ Route::middleware("guest")->group(function() {
 
     Route::get('/register', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
     Route::post('/register_process', [\App\Http\Controllers\AuthController::class, 'register'])->name('register_process');
+
+    Route::get('/forgot', [\App\Http\Controllers\AuthController::class, 'showForgotForm'])->name('forgot');
+    Route::post('/forgot_process', [\App\Http\Controllers\AuthController::class, 'forgot'])->name('forgot_process');
 });
