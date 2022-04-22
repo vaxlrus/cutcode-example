@@ -18,8 +18,13 @@ Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('
 Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
+Route::get('/contacts', [\App\Http\Controllers\IndexController::class, 'showContactForm'])->name('contacts');
+Route::post('/contacts_form_process', [\App\Http\Controllers\IndexController::class, 'contactFormHandler'])->name('contacts_form_process');
+
 Route::middleware("auth")->group(function() {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+    Route::post('/posts/comment/{id}', [\App\Http\Controllers\PostController::class, 'comment'])->name('comment');
 });
 
 Route::middleware("guest")->group(function() {
